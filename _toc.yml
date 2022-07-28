@@ -1,0 +1,30 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption:  microbit opdrachten
+    numbered: True
+    chapters:
+    - file: laden
+    - file: kloppend-hart
+    - file: hello-world
+    - file: buttons-events
+    - file: teller
+    - file: schakelaar
+    - file: valdetectie
+    - file: stemmen
+
+  - caption: referentie
+    chapters:
+    - file: mu-editor
+    - file: python
+    - file: events-signalen
+    - file: microbit-cheatsheet
+    - file: timers
+    - file: glossary
+    
+  - caption: voor de docent
+    chapters:
+    - file: voordedocent
