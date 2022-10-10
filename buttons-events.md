@@ -2,19 +2,19 @@
 
 ::::{grid}
 
-:::{grid-item-card} Voorkennis
+:::{grid-item-card}
 :class-header: bg-light
-header
+**Voorkennis**
 ^^^
 
 * `display.show`
 
-+++
-footer
 :::
 
-:::{grid-item-card} Concepten
-:class-body: bg-light
+:::{grid-item-card}
+:class-header: bg-light
+**Concepten**
+^^^
 
 * button
 * event, event-handler, event-loop

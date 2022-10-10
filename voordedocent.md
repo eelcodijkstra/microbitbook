@@ -4,7 +4,7 @@ Deze lessen zijn niet bedoeld als cursus programmeren, en nog minder als cursus 
 Maar ze kunnen we gebruikt worden als kennismaking met deze onderwerpen, 
 om daar in een later stadium serieuzer mee aan de slag te gaan.
 
-Dit materiaal is in eerste instantie gemaakt voor 4 HAVO van WereDi in Valkenswaard.
+Dit materiaal is in eerste instantie bedoeld als start van het vak informatica.
 
 De eerste lessen zijn vooral bedoeld om de interesse en motivatie van de leerlingen te stimuleren.
 Mogelijke leerdoelen zijn daaraan ondergeschikt. 

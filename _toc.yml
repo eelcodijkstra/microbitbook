@@ -7,6 +7,7 @@ parts:
   - caption:  microbit opdrachten
     numbered: True
     chapters:
+    - file: microbit-kennismaking
     - file: laden
     - file: kloppend-hart
     - file: hello-world
@@ -15,14 +16,19 @@ parts:
     - file: schakelaar
     - file: valdetectie
     - file: stemmen
+    - file: stopwatch
+    - file: codeslot
+    - file: verkeerslichten
 
   - caption: referentie
     chapters:
     - file: mu-editor
     - file: python
+    - file: microbit-cheatsheet    
     - file: events-signalen
-    - file: microbit-cheatsheet
     - file: timers
+    - file: automaten
+    - file: input-output-systemen
     - file: glossary
     
   - caption: voor de docent
