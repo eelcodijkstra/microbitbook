@@ -9,10 +9,10 @@ Een timer kun je zien als een kookwekker die na een bepaalde periode afloopt.
 Het aflopen van een timer is een *timer-event*, die je kunt behandelen als andere events.
 Je kunt aan het aflopen van een timer een actie verbinden (event-handler).
 
-Voor deze timers maak je gebruik van de ingebouwde timers van de microbit.
-De functie `utime.ticks()` geeft het aantal seconden vanaf een willekeurig moment;
-de functie `utime.ticks_ms()` geeft het aantal microseconden vanaf een willekeurig moment.
-Bovendien hebben deze timers een beperkte precisie: als de maximale waarde bereikt is, beginnen ze weer bij 0 ("wrap around"). Dit betekent dat je deze timers niet kunt gebruiken als absolute referentie, maar wel voor het meten van tijdsintervallen (periodes).
+Voor deze timers maak je gebruik van de ingebouwde timer van de microbit.
+De functie `utime.ticks_ms()` geeft het aantal milliseconden vanaf een willekeurig moment.
+Deze timer heeft een eindige capaciteit: als de maximale waarde bereikt is, begint deze weer bij 0 ("wrap around"). Dit betekent dat je `ticks_ms()` niet kunt gebruiken als absolute referentie, maar alleen voor het meten van tijdsintervallen (periodes).
+(Er is ook een functie `utime.ticks_us()` die het aantal microseconden geeft vanaf een willekeurig moment.)
 
 Eem timer is niets anders dan een getal (int) dat het tijdstip voorstelt waarop de timer afloopt.
 Door dit getal te vergelijken met de actuele waarde van de microbit-timer zie je of deze timer afgelopen is of niet.
@@ -20,9 +20,9 @@ Door dit getal te vergelijken met de actuele waarde van de microbit-timer zie je
 * zetten van de timer die over 500 milliseconden afloopt : 
     * `deadline = utime.ticks_add(utime.ticks_ms(), 500)`
 * is de timer afgelopen? 
-    * `if ticks_diff(now, deadline) >= 0: ...action...`
+    * `if ticks_diff((utime.ticks_ms(), deadline) >= 0: ...action...`
     * dit lees je als `now - deadline >= 0` ofwel `now >= deadline`;      
-    * `now` is: `utime.ticks()` of `utime.ticks_ms()`;
+    * `now` is: `utime.ticks_ms()`;
     * deze speciale functie `ticks_diff` is nodig in verband met het "rondtellen" van de *ticks*-teller.
 
 :::{figure} figs/timer-expiring-exc.png

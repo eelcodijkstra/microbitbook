@@ -1,4 +1,4 @@
-# Schakelaar
+# Dimmer
 
 In deze opdracht gebruik je de knoppen van de microbit om het display als "lampje" aan- en uit te schakelen. Een volgende stap is om dit display in verschillende lichtsterktes te schakelen, als bij een dimmer.
 Je kunt in plaats van het display ook een externe LED als "lampje" gebruiken.

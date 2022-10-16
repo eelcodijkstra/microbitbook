@@ -36,10 +36,15 @@ $$
 
 $$
 o_{t_{n}} = F(i_{t_{n}}, s_{t_{n}})
+$$
+
+$$
 s_{t_{n+1}} = G(i_{t_{n}}, s_{t_{n}})
 $$
 
-Hierin is $o_{t_{n}}$ de output op tijdstip ${t_{n}}$, $i_{t_{n}$ de input op tijdstip ${t_{n}$, en $s_{t_{n}$ de toestand op tijdstip ${t_{n}$.
+Hierin is $o_{t_{n}}$ de output op tijdstip ${t_{n}}$, 
+$i_{t_{n}}$ de input op tijdstip ${t_{n}}$, 
+en $s_{t_{n}}$ de toestand op tijdstip ${t_{n}}$.
 $F$ en $G$ zijn hierin *functies* (zoals in de wiskunde, of in functioneel programmeren).
 
 Je kunt de bovenstaande figuren zowel gebruiken voor signalen als voor events.

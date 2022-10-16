@@ -13,23 +13,24 @@ parts:
     - file: hello-world
     - file: buttons-events
     - file: teller
-    - file: schakelaar
+    - file: dimmer
     - file: valdetectie
     - file: stemmen
     - file: stopwatch
     - file: codeslot
     - file: verkeerslichten
+    - file: binaire-klok
 
   - caption: referentie
     chapters:
-    - file: mu-editor
-    - file: python
-    - file: microbit-cheatsheet    
-    - file: events-signalen
-    - file: timers
-    - file: automaten
-    - file: input-output-systemen
-    - file: glossary
+    - file: referentie/mu-editor
+    - file: referentie/python
+    - file: referentie/microbit-cheatsheet    
+    - file: referentie/events-signalen
+    - file: referentie/timers
+    - file: referentie/automaten
+    - file: referentie/input-output-systemen
+    - file: referentie/glossary
     
   - caption: voor de docent
     chapters:

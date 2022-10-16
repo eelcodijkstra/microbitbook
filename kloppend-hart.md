@@ -40,14 +40,14 @@ from microbit import *
 display.show(Image.HEART)
 ```
 
-Uitleg hierbij:
+Wat betekent dit?
 
 :::{margin}
 Over de begrippen *module*, *class* en *object* hoef je je nu nog niet druk te maken. Daar komen we later uitgebreider op terug. Het is voldoende als je deze voorbeelden in grote lijnen begrijpt.
 :::
 
-- we gebruiken (”importeren”) de microbit-module, een grote verzameling definities voor het gebruik van de microbit. Zie [microbit](https://microbit-micropython.readthedocs.io/en/v2-docs/microbit.html)
-- van deze module gebruiken we de `show`-functie van de `display`-module: `display.show(fig)` toont een figuur op het display. Zie [microbit.display.show](https://microbit-micropython.readthedocs.io/en/v2-docs/display.html#microbit.display.show)
+- voordat je de opdrachten van de microbit-module kunt gebruiken, moet je deze eerst *importeren*. De microbit-module is een grote verzameling definities voor het gebruik van de microbit. Zie [microbit](https://microbit-micropython.readthedocs.io/en/v2-docs/microbit.html). Deze module bevat onder andere de `display`-module voor het aansturen van het display.
+- de `show`-functie van de `display`-module: `display.show(fig)` toont een figuur op het display. Zie [microbit.display.show](https://microbit-micropython.readthedocs.io/en/v2-docs/display.html#microbit.display.show)
 - als figuur gebruiken we het `HEART`-object (een hart) van de `Image` class: zie [images](https://microbit-micropython.readthedocs.io/en/v2-docs/image.html#attributes)
 
 
