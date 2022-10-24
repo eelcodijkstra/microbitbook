@@ -20,6 +20,7 @@ parts:
     - file: codeslot
     - file: verkeerslichten
     - file: binaire-klok
+    - file: cellulaire-automaat
 
   - caption: referentie
     chapters:
@@ -30,6 +31,7 @@ parts:
     - file: referentie/timers
     - file: referentie/automaten
     - file: referentie/input-output-systemen
+    - file: referentie/cellulaire-automaten
     - file: referentie/glossary
     
   - caption: voor de docent
