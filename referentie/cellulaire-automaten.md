@@ -1,12 +1,24 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (cellulaire-automaten)=
 # Cellulaire automaten
 
 :::{margin}
-Conway's Game of Life is een voorbeeld van een twee-dimensionale cellulaire automaat.
+Conway's Game of Life is een voorbeeld van een 2-dimensionale cellulaire automaat.
 Je hebt dan een vlak met cellen (witte en zwarte hokjes).
 :::
 
-Een 1-dimensionale cellulaire automaat bestaat uit een reeks aaneengesloten cellen 
+Een 1-dimensionale cellulaire automaat bestaat uit een reeks aaneengesloten cellen. 
 Een cel is "levend" (zwart, 1) of "dood" (wit, 0).
 De toestand van een automaat op een bepaald moment geeft aan welke cellen levend zijn, en welke dood.
 Dit kun je weergeven als een (horizontale) rij zwart/witte cellen (hokjes).
@@ -105,4 +117,82 @@ het is niet een praktische oplossing. Maar dat doet aan de fundamentele rekenkra
     * bekijk eens p. 400 en volgende: https://www.wolframscience.com/nks/p400--growth-of-plants-and-animals/
 
 
+## Programma
 
+Hieronder geven we een programma voor het uitrekenen van de opeenvolgende toestanden van een cellulaire automaat, in Python.
+
+```{code-cell} ipython3
+import random
+from typing import List
+
+rule = [0, 0, 0, 0, 0, 0, 0, 0]  # rule represented as 8 bits
+
+size = 10     # number of cells in a state
+state = []    # a list of cells
+history = []  # a list of states
+
+# create a new cellular automaton
+# nr_cells: number of cells
+# ones:     positions of living cells
+def create_state(nr_cells: int, ones: List[ int ]) -> None:
+    global size, state, history
+    size = nr_cells
+    state = []
+    for i in range(size):
+        if i in ones:
+            state.append(1)
+        else:
+            state.append(0)
+    history = [state]
+
+# set rule-list from rule-number
+def set_rule(rulenr: int) -> None:
+    global rule
+    for r in range(8):
+        rule[r] = rulenr % 2
+        rulenr = rulenr // 2
+
+# cell-value in current state,
+# with border-cells with value 0
+def cell(i: int) -> int:
+    if i < 0 or i >= len(state):
+        return 0
+    else:
+        return state[i]
+
+# compute next state
+# and add to history
+def step_state() -> None:
+    global state, history
+    next_state = []
+    for i in range(size):
+        cell_state = cell(i-1) * 4 + cell(i) * 2 + cell(i+1)
+        next_state.append(rule[cell_state]) 
+    state = next_state
+    history.append(state)
+
+def display_history() -> None:
+    for row in history:
+        line = ""
+        for x in row:
+            line = line + str(x)     
+        print(line)
+```
+
+```{tip}
+Je kunt deze pagina "live" maken, via het menu *raket->Live code* bovenin.
+De code-cellen krijgen dan knoppen waarmee je deze uit kunt voeren.
+Je kunt de code in de cellen ook aanpassen, voor eigen experimenten.
+**Let op:** het opstarten van een "live book" kan even duren; 
+als je dan een cel probeert uit te voeren, krijg je de melding "waiting for kernel".
+```
+
+Met "Live code" kun je de code op deze pagina aanpassen en opnieuw uitvoeren. Voer eerst de code-cel hierboven uit; daarna kun je de begintoestand of de regel hieronder aanpassen en de cellulaire automaat een aantal stappen laten uitvoeren.
+
+```{code-cell} ipython3
+create_state(40, [20,22,24])
+set_rule(110)
+for i in range(20):
+    step_state()
+display_history()
+```
