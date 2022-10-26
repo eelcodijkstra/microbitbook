@@ -1,6 +1,13 @@
 (cellulaire-automaat)=
 # Cellulaire automaat
 
+:::{figure} figs/mb-cellulaire-automaat.png
+:width: 250
+:align: right
+
+Cellulaire automaat
+:::
+
 In deze opdracht gebruik je de microbit voor het simuleren van een 1-dimensionale *cellulaire automaat*.
 De automaat is beperkt tot de breedte van de microbit: 5 cellen.
 Het display van de microbit geeft (maximaal) 5 opeenvolgende generaties van deze automaat.
@@ -15,7 +22,7 @@ We beschrijven eerst het gebruik van het programma, en daarna leggen we de werki
     * hiermee kun je na het schudden de begintoestand aanpassen 
 
 Je kunt experimenteren met de verschillende regels voor het bepalen van de volgende generatie.
-Hiervoor moet je wel de code aanpassen (aanroep `setrulenr(110)`).
+Hiervoor moet je wel de code aanpassen (aanroep `setrulenr(...)`).
 
 ## Programma
 
