@@ -41,6 +41,12 @@ sphinx:
   local_extensions:
     sphinx_assessment: ./ext/sphinx-assessment
     sphinx_progress: ./ext/sphinx-progress
+  config:
+    language: nl  
+    numfig_format:
+      exercise: "Opdracht %s"
+      assessment: "Vraag %s"
+    graphviz_output_format: "svg"    
 
 exclude_patterns: [ext/*,_build, Thumbs.db, .DS_Store, ".ipynb_checkpoints/*", "**.ipynb_checkpoints", figuren/*]
 

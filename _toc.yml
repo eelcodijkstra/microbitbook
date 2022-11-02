@@ -21,6 +21,7 @@ parts:
     - file: verkeerslichten
     - file: binaire-klok
     - file: cellulaire-automaat
+    - file: game-of-life
     - file: serie-opteller
 
   - caption: referentie

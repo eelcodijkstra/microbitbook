@@ -48,6 +48,17 @@ Opeenvolging van toestanden
 
 Kun je voorspellen welke waarden je krijgt in rijen 4 en 5?
 
+:::{fillintheblank}
+Geef de waarden voor rij 4 en rij 5 als een reeks van 0-en en 1-en, 0 voor wit en 1 voor zwart.
+Deze rij moet 9 tekens lang zijn.
+
+Rij 4: {blank}`001111100`
+
+Rij 5: {blank}`011000100`
+
+* answer list???
+:::
+
 ::::
 
 ::::{tab-item} Tip: bepaal de regels

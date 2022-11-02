@@ -10,9 +10,17 @@ Cellulaire automaat
 
 In deze opdracht gebruik je de microbit voor het simuleren van een 1-dimensionale *cellulaire automaat*.
 De automaat is beperkt tot de breedte van de microbit: 5 cellen.
-Het display van de microbit geeft (maximaal) 5 opeenvolgende generaties van deze automaat.
+Het display van de microbit geeft de 5 meest recente opeenvolgende generaties van deze automaat.
+
+We beschrijven eerst het gebruik van het programma, en daarna leggen we de werking uit.
 
 ## Gebruik
+
+:::{admonition} Laden van het programma
+Om het programma op de microbit te laden, kopieer je de programmatekst hieronder (via de Copy-knop rechtsboven),
+en plak je deze in je Python-editor. Daarna kun je het uitvoeren in de simulator (voor de online editor), 
+of naar je microbit sturen, en daar uitvoeren.
+:::
 
 We beschrijven eerst het gebruik van het programma, en daarna leggen we de werking uit.
 
@@ -23,6 +31,17 @@ We beschrijven eerst het gebruik van het programma, en daarna leggen we de werki
 
 Je kunt experimenteren met de verschillende regels voor het bepalen van de volgende generatie.
 Hiervoor moet je wel de code aanpassen (aanroep `setrulenr(...)`).
+
+:::{exercise} Controleer je antwoorden met de microbit
+
+Maak de opdracht in {ref}`cellulaire-automaten` en 
+controleer je antwoorden met de microbit.
+
+Hoe kun je de juiste waarden voor rij 5 controleren, als je microbit maar 5 cellen breed is?
+
+:::{dropdown} Tip
+De volgende waarde van een cel hangt alleen af van de huidige waarde van die cel en die van zijn directe buren.
+:::
 
 ## Programma
 
