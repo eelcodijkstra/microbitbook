@@ -1,0 +1,754 @@
+
+<!DOCTYPE html>
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Events en signalen &#8212; Microbit-boek</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/assessment.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/progress.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/assessment.js"></script>
+    <script src="../_static/progress.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Cellulaire automaten" href="cellulaire-automaten.html" />
+    <link rel="prev" title="16. Serie-opteller" href="../opdrachten/serie-opteller.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nl">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Microbit-boek</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welkom bij deze cursus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  microbit opdrachten
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../microbit-kennismaking.html">
+   1. Leer de microbit kennen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../laden.html">
+   2. Programma laden op de microbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../kloppend-hart.html">
+   3. Kloppend hart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hello-world.html">
+   4. Hello World!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../buttons-events.html">
+   5. Buttons en events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../teller.html">
+   6. Teller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dimmer.html">
+   7. Dimmer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../valdetectie.html">
+   8. Valdetectie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../stemmen.html">
+   9. Stemmen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../stopwatch.html">
+   10. Stopwatch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../codeslot.html">
+   11. Codeslot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../verkeerslichten.html">
+   12. Verkeerslichten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../binaire-klok.html">
+   13. Binaire klok
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cellulaire-automaat.html">
+   14. Cellulaire automaat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../opdrachten/game-of-life.html">
+   15. Game of Life
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../opdrachten/serie-opteller.html">
+   16. Serie-opteller
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  concepten
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Events en signalen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cellulaire-automaten.html">
+   Cellulaire automaten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="timers.html">
+   Timers en timer-events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="automaten.html">
+   Eindige automaten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="input-output-systemen.html">
+   input-output systemen
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  referentie
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mu-editor.html">
+   De Mu-editor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python.html">
+   Python - cheatsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="microbit-cheatsheet.html">
+   microbit cheat sheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Woordenlijst
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  voor de docent
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../voordedocent.html">
+   Voor de docent
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/eelcodijkstra/microbitbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/eelcodijkstra/microbitbook/issues/new?title=Issue%20on%20page%20%2Freferentie/events-signalen.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/referentie/events-signalen.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#events">
+   Events
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signalen">
+   Signalen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#van-signaal-naar-event">
+   Van signaal naar event
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overgangdetectie">
+     Overgangdetectie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#drempelwaarden">
+     Drempelwaarden
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#piekdetectie">
+     Piekdetectie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ruis">
+     Ruis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Events en signalen</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#events">
+   Events
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signalen">
+   Signalen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#van-signaal-naar-event">
+   Van signaal naar event
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overgangdetectie">
+     Overgangdetectie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#drempelwaarden">
+     Drempelwaarden
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#piekdetectie">
+     Piekdetectie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ruis">
+     Ruis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="events-en-signalen">
+<span id="id1"></span><h1>Events en signalen<a class="headerlink" href="#events-en-signalen" title="Permalink naar deze titel">#</a></h1>
+<p>Bij Physical Computing hebben we te maken met verschillende soorten inputs: signalen en events.</p>
+<ul class="simple">
+<li><p>een signaal heeft op elk moment een waarde;</p></li>
+<li><p>een event is een gebeurtenis die plaatvindt op een <em>ondeeelbaar ogenblik</em>.</p></li>
+</ul>
+<p>Voor de drukknoppen (buttons) zijn er verschillende functies:</p>
+<ul class="simple">
+<li><p>de functie <code class="docutils literal notranslate"><span class="pre">button.is_pressed()</span></code> geeft het signaal van de drukknop weer: is de drukknop op dat moment ingedrukt?</p></li>
+<li><p>de functie <code class="docutils literal notranslate"><span class="pre">button.was_pressed()</span></code> geeft de drukknop-events weer: is de drukknop tussen dit moment en de vorige aanroep ingedrukt geweest?</p></li>
+</ul>
+<p>In de voorbeeld-programma’s gebruiken we meestal de event-functies, in de event-loop (<code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span> <span class="pre">...</span></code>).
+In het bijzonder gebruiken we deze events als inputs bij de overgangen van een eindige automaat.</p>
+<p>Soms is het nodig om zelf de events in een signaal te detecteren; de geven hieronder daarvan enkele voorbeelden.</p>
+<section id="events">
+<h2>Events<a class="headerlink" href="#events" title="Permalink naar deze titel">#</a></h2>
+<p>Een event is een gebeurtenis die plaatsvindt op een <em>ondeelbaar ogenblik</em>.</p>
+<p>Fysisch gezien heeft een event altijd een bepaalde duur, maar voor de software is die duur niet van belang: in de software <em>abstraheren</em> we van deze duur, anders gezegd: die duur heeft geen betekenis voor de software, en daarom laten we die weg.</p>
+<p>Als de duur voor de software wel van belang is, bijvoorbeeld als je wilt weten hoe lang de knop ingedrukt is, dan kun je werken met een begin- en een eind-event: het indrukken van de knop en het loslaten van de knop.</p>
+<p>Het indrukken van een knop begint met de <em>overgang</em> van “hoog” (niet ingedrukt) naar “laag” (ingedrukt) van het knop-signaal. microbit-Python detecteert deze overgang als  een <em>event</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">button.is_pressed()</span></code> geeft de <em>actuele toestand</em> van de knop weer, ofwel het <em>signaal</em> van de knop.</p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>er zijn allerlei functies waarmee je events kunt detecteren, bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">was_gesture(face_up)</span></code> of <code class="docutils literal notranslate"><span class="pre">was_gesture(face_down)</span></code>. Zie <a class="reference external" href="https://microbit-micropython.readthedocs.io/en/v2-docs/tutorials/gestures.html">https://microbit-micropython.readthedocs.io/en/v2-docs/tutorials/gestures.html</a>.</p></li>
+<li><p>indrukken van 1 of beide buttons; gestures (zie: xxx); V2: microphone.was_event(loud) of microphone.was_event(quiet).</p></li>
+<li><p>er is allerlei uitvoer mogelijk, naast tekst of figuren op het display, ook geluid, of het aansturen van de pinnen (bijvoorbeeld om een motor aan te sturen). Of, als een radio-bericht ontvangen is.</p></li>
+<li><p>We kunnen met behulp van timers ook onze eigen “events” maken.</p></li>
+</ul>
+<p>Andere events</p>
+<ul class="simple">
+<li><p>knoppen: <code class="docutils literal notranslate"><span class="pre">button_a.was_pressed()</span></code>, <code class="docutils literal notranslate"><span class="pre">button_b.was_pressed()</span></code>,</p></li>
+<li><p>(versnellingsmeter) gebaren (gestures): SHAKE (en een aantal andere)</p></li>
+<li><p>microfoon (alleen V2): twee niveau’s detectie,</p></li>
+</ul>
+<p><strong>Opmerking:</strong> in tegenstelling tot de MakeCode versie is er geen event voor het tegelijk indrukken van beide buttons. Dit betekent dat we voor de operatie (optelling e.d.) een ander event moeten kiezen, bijv. schudden.</p>
+</section>
+<section id="signalen">
+<h2>Signalen<a class="headerlink" href="#signalen" title="Permalink naar deze titel">#</a></h2>
+<p><strong>Een signaal heeft op elk moment een waarde.</strong> Voorbeelden van signalen: de output van een temperatuursensor; van een accelerometer; van een digitale input-port.</p>
+<p>Een signaal kan analoog zijn of digitaal. Een digitaal signaal heeft <em>discrete waarden</em>, op <em>discrete tijdstippen</em>. In principe heeft het signaal ook een waarde op de tussenliggende tijdstippen; deze waarden kun je bepalen (als dat nodig is) door <em>interpolatie</em>.</p>
+<p>Het volgende programma zet het input-signaal van een drukknop (button) om in directe besturing van het display (LEDs): als je knop A indrukt, brandt het display; als je deze knop weer loslaat, gaat het display weer uit.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">():</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Images</span><span class="o">.</span><span class="n">HEART</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Voor het aansturen van een LED via een pin is dit nog eenvoudiger:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">pin0</span><span class="o">.</span><span class="n">write_digital</span><span class="p">(</span> <span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">()</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>(Mogelijk moeten we de typering nog aanpassen.)</p>
+<p>In dit voorbeeld zie je dat de waarde van de output direct overeenkomt met de waarde van de input: zodra de input verandert, verandert de output ook. Dit is een voorbeeld van een directe signaal-koppeling. (In dit geval is er geen sprake van events en toestanden.)</p>
+<p>(Een ander voorbeeld hiervan zie je bijvoorbeeld bij de snelheidsregeling met een potmeter.)</p>
+</section>
+<section id="van-signaal-naar-event">
+<h2>Van signaal naar event<a class="headerlink" href="#van-signaal-naar-event" title="Permalink naar deze titel">#</a></h2>
+<p>Een event als “button pressed” of “shake” is het resultaat van het verwerken van het signaal van de betreffende sensor: je moet de event <em>detecteren</em> in het signaal.</p>
+<section id="overgangdetectie">
+<h3>Overgangdetectie<a class="headerlink" href="#overgangdetectie" title="Permalink naar deze titel">#</a></h3>
+<p>Voor het indrukken van een knop is het detecteren van de event eenvoudig: je herkent deze aan de overgang van “niet ingedrukt” (signaal is laag) naar “ingedrukt” (signaal is hoog). Anders gezegd: als de huidige waarde van het signaal “laag” is, en de vorige waarde was “hoog”, dan detecteer je de event “button pressed”.</p>
+<p>De microbit heeft twee soorten input-functies, voor signalen en voor events:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">button_a.is_pressed()</span></code> - geeft de huidige signaalwaarde van de button</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">button_a.was_pressed()</span></code> - geeft aan of er een “pressed” event voor de button gedetecteerd is - tussen de vorige aanroep van <code class="docutils literal notranslate"><span class="pre">was_pressed</span></code> en de huidige aanroep.</p></li>
+</ul>
+<p>Voor het signaal van de accelerometer heb je de functie <code class="docutils literal notranslate"><span class="pre">accelerometer.get_values()</span></code> voor de actuele signaalwaarden; en <code class="docutils literal notranslate"><span class="pre">accelerometer.get_gestures()</span></code> voor de gedetecteerde events tussen de vorige en de huidige aanroep.</p>
+<p>Voor het signaal van de microfoon heb je de functie <code class="docutils literal notranslate"><span class="pre">microphone.sound_level()</span></code>; voor de gedetecteerde events tussen de vorige en de huidige aanroep heb je <code class="docutils literal notranslate"><span class="pre">microphone.get_events()</span></code>.</p>
+<blockquote>
+<div><p>Opmerking: er kunnen meerdere events optreden tussen twee aanroepen van <code class="docutils literal notranslate"><span class="pre">was_gesture('shake')</span></code>. Als je een analyse wilt doen op basis van de verschillende gestures, dan wil je eigenlijk dat <code class="docutils literal notranslate"><span class="pre">was_gesture('shake')</span></code> alleen de shake-events uit de geschiedenis wist, en niet de andere gestures. Maar werkt dat ook zo? Dat kan ik niet uit de beschrijving halen.</p>
+</div></blockquote>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">presses</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># history of H-&gt;L transitions</span>
+<span class="n">prev_signal</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># event detected?</span>
+<span class="k">def</span> <span class="nf">button_was_pressed</span><span class="p">():</span>
+    <span class="n">prev_presses</span> <span class="o">=</span> <span class="n">presses</span>
+    <span class="n">presses</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># clear history</span>
+    <span class="k">return</span> <span class="n">prev_presses</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># detect button event:</span>
+    <span class="n">button_signal</span> <span class="o">=</span> <span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">()</span>  
+    <span class="k">if</span> <span class="n">button_signal</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">prev_signal</span><span class="p">:</span>
+        <span class="n">presses</span> <span class="o">=</span> <span class="n">presses</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># H-&gt;L transition detected</span>
+    <span class="n">prev_signal</span> <span class="o">=</span> <span class="n">button_signal</span>
+    
+    <span class="k">if</span> <span class="n">button_was_pressed</span><span class="p">():</span>
+        <span class="k">pass</span>   <span class="c1"># handle button event</span>
+</pre></div>
+</div>
+<p>(<em>We moeten de naamgeving nog aanpassen, zo nog niet erg duidelijk.</em>)</p>
+<p>(De microbit houdt hiervoor een teller bij, voor het aantal malen dat een knop ingedrukt wordt tussen twee aanroepen van <code class="docutils literal notranslate"><span class="pre">button.was_pressed()</span></code>. We kunnen bovenstaande ook aanpassen voor die teller.)</p>
+<blockquote>
+<div><p>In de praktijk is dit nog iets ingewikkelder, omdat het signaal bij het indrukken van een knop niet altijd stabiel is: het kan even snel veranderen tussen hoog en laag en weer terug, de zogenaamde <em>contact dender</em>. Dit heeft ermee te maken dat een schakelaar een niet-perfect mechanisch instrument is. Zie: Wikipedia contact dender.</p>
+</div></blockquote>
+<p>Voor andere events, zoals “shake”, heb je meer signaalwaarden nodig om de event te kunnen detecteren.</p>
+</section>
+<section id="drempelwaarden">
+<h3>Drempelwaarden<a class="headerlink" href="#drempelwaarden" title="Permalink naar deze titel">#</a></h3>
+<p>In het geval van een (tweewaardig) digitaal signaal zoals dat van de drukknop is het verschil tussen “hoog” en “laag” duidelijk. Maar als je met een meerwaardig (“analoog”) signaal te maken hebt, zoals het signaal van de accelerometer, dan moet je de drempelwaarden geven waaronder je dit “laag” noemt, en waarboven je dit “hoog” noemt.</p>
+<blockquote>
+<div><p>Ook in de digitale electronics moet je vastleggen wat je <em>laag</em> en <em>hoog</em> noemt. Zo zijn de drempelwaarden voor de 5V TTL-schakelingen: een input onder 0.8V wordt gezien als <em>laag</em> (of 0); en boven 2.0V wordt gezien als <em>hoog</em> (of 1). De waarden daartussen zijn niet gedefinieerd.</p>
+</div></blockquote>
+</section>
+<section id="piekdetectie">
+<h3>Piekdetectie<a class="headerlink" href="#piekdetectie" title="Permalink naar deze titel">#</a></h3>
+<p>Een wat ingewikkelder event in een signaal is een <em>piek</em>. Voor bijvoorbeeld het detecteren van een hartslag in een ECG-signaal, of van een stap in het signaal van een accelerometer, moet je deze pieken kunnen detecteren.</p>
+<p>Een piek kenmerkt zich door de opeenvolging “lhl”, waarbij de waarde “h” hoger is dan beide waarden “l”.</p>
+<p>Merk op dat dit een lokale piek kan zijn: als je een piek beter wilt kunnen detectere, moet je meer dan 3 waarden vergelijken.</p>
+</section>
+<section id="ruis">
+<h3>Ruis<a class="headerlink" href="#ruis" title="Permalink naar deze titel">#</a></h3>
+<p>Een analoog signaal bevat altijd enige ruis: de waarde die je meet (in een sensor, en bij een Analoog/Digitaal omzetting) is nooit precies, maar fluctueert ook als de eigenlijke fysieke input stabiel is.</p>
+<p>Het effect van deze ruis kun je verminderen door te werken met het gemiddelde van een aantal waarden, bijvoorbeeld het gemiddelde van de laatste drie meetwaarden.</p>
+<p>(Voorbeeld-code van deze middeling; deze verschuift met de metingen mee: je hebt op elk meet-moment een gemiddelde van de laatste 3 metingen. Dit kun je zien als een “laag-doorlaatfilter”.)</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "eelcodijkstra/microbitbook",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./referentie"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../opdrachten/serie-opteller.html" title="vorige pagina">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">vorige</p>
+            <p class="prev-next-title"><span class="section-number">16. </span>Serie-opteller</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="cellulaire-automaten.html" title="volgende pagina">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title">Cellulaire automaten</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Eelco Dijkstra<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

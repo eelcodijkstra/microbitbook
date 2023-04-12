@@ -1,0 +1,929 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Figuren met Graphviz &#8212; Microbit-boek</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/assessment.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/progress.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/assessment.js"></script>
+    <script src="../_static/progress.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Microbit-boek</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welkom bij deze cursus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  microbit opdrachten
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../microbit-kennismaking.html">
+   1. Leer de microbit kennen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../laden.html">
+   2. Programma laden op de microbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../kloppend-hart.html">
+   3. Kloppend hart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hello-world.html">
+   4. Hello World!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../buttons-events.html">
+   5. Buttons en events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../teller.html">
+   6. Teller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schakelaar.html">
+   7. Schakelaar
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../valdetectie.html">
+   8. Valdetectie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../stemmen.html">
+   9. Stemmen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../stopwatch.html">
+   10. Stopwatch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../codeslot.html">
+   11. Codeslot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../verkeerslichten.html">
+   12. Verkeerslichten
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  referentie
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referentie/mu-editor.html">
+   De Mu-editor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referentie/python.html">
+   Python - cheatsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referentie/microbit-cheatsheet.html">
+   microbit cheat sheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referentie/events-signalen.html">
+   Events en signalen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referentie/timers.html">
+   Timers en timer-events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referentie/automaten.html">
+   Eindige automaten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referentie/input-output-systemen.html">
+   input-output systemen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referentie/glossary.html">
+   Woordenlijst
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  voor de docent
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../voordedocent.html">
+   Voor de docent
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/eelcodijkstra/microbitbook/master?urlpath=tree/figuren/figuren.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/eelcodijkstra/microbitbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/eelcodijkstra/microbitbook/issues/new?title=Issue%20on%20page%20%2Ffiguren/figuren.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/figuren/figuren.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Figuren met Graphviz</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="figuren-met-graphviz">
+<h1>Figuren met Graphviz<a class="headerlink" href="#figuren-met-graphviz" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+echo &#39;digraph { a -&gt; b }&#39; | dot -Tsvg -Gfontcolor=red -Glabel=&quot;My favorite letters&quot; &gt; test.svg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">txt</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;test.svg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">txt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/figuren_2_0.svg" src="../_images/figuren_2_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+<span class="n">world</span> <span class="o">=</span> <span class="s1">&#39; world!&#39;</span>
+
+<span class="o">!</span><span class="nb">echo</span> <span class="o">{</span> hello + world <span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="o">!</span><span class="nb">echo</span> <span class="s1">&#39;digraph { a -&gt; b }&#39;</span> <span class="p">|</span> dot -Tsvg 
+<span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">fig</span> <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="s2">&quot;echo &#39;digraph { a -&gt; b }&#39; | dot -Tsvg&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">fig</span> <span class="p">))</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jbooktest/lib/python3.10/site-packages/IPython/core/display.py:320,</span> in <span class="ni">DisplayObject.__init__</span><span class="nt">(self, data, url, filename, metadata)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="c1"># because of @data.setter methods in</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="c1"># subclasses ensure url and filename are set</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span> <span class="c1"># before assigning to self.data</span>
+<span class="ne">--&gt; </span><span class="mi">320</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span> <span class="k">if</span> <span class="n">metadata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span>     <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jbooktest/lib/python3.10/site-packages/IPython/core/display.py:479,</span> in <span class="ni">SVG.data</span><span class="nt">(self, svg)</span>
+<span class="g g-Whitespace">    </span><span class="mi">477</span> <span class="c1"># parse into dom object</span>
+<span class="g g-Whitespace">    </span><span class="mi">478</span> <span class="kn">from</span> <span class="nn">xml.dom</span> <span class="kn">import</span> <span class="n">minidom</span>
+<span class="ne">--&gt; </span><span class="mi">479</span> <span class="n">x</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">svg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span> <span class="c1"># get svg tag (should be 1)</span>
+<span class="g g-Whitespace">    </span><span class="mi">481</span> <span class="n">found_svg</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;svg&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jbooktest/lib/python3.10/xml/dom/minidom.py:1998,</span> in <span class="ni">parseString</span><span class="nt">(string, parser)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1996</span> <span class="k">if</span> <span class="n">parser</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1997</span>     <span class="kn">from</span> <span class="nn">xml.dom</span> <span class="kn">import</span> <span class="n">expatbuilder</span>
+<span class="ne">-&gt; </span><span class="mi">1998</span>     <span class="k">return</span> <span class="n">expatbuilder</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1999</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2000</span>     <span class="kn">from</span> <span class="nn">xml.dom</span> <span class="kn">import</span> <span class="n">pulldom</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jbooktest/lib/python3.10/xml/dom/expatbuilder.py:925,</span> in <span class="ni">parseString</span><span class="nt">(string, namespaces)</span>
+<span class="g g-Whitespace">    </span><span class="mi">923</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">924</span>     <span class="n">builder</span> <span class="o">=</span> <span class="n">ExpatBuilder</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">925</span> <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jbooktest/lib/python3.10/xml/dom/expatbuilder.py:223,</span> in <span class="ni">ExpatBuilder.parseString</span><span class="nt">(self, string)</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span> <span class="n">parser</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getParser</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">223</span>     <span class="n">parser</span><span class="o">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_setup_subset</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="k">except</span> <span class="n">ParseEscape</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;SList&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">fig1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/figuren_7_0.svg" src="../_images/figuren_7_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">fig1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;\n&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;\n &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;\n&lt;!-- Generated by graphviz version 6.0.1 (20220911.1526)\n --&gt;\n&lt;!-- Pages: 1 --&gt;\n&lt;svg width=&quot;62pt&quot; height=&quot;116pt&quot;\n viewBox=&quot;0.00 0.00 62.00 116.00&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;\n&lt;g id=&quot;graph0&quot; class=&quot;graph&quot; transform=&quot;scale(1 1) rotate(0) translate(4 112)&quot;&gt;\n&lt;polygon fill=&quot;white&quot; stroke=&quot;none&quot; points=&quot;-4,4 -4,-112 58,-112 58,4 -4,4&quot;/&gt;\n&lt;!-- a --&gt;\n&lt;g id=&quot;node1&quot; class=&quot;node&quot;&gt;\n&lt;title&gt;a&lt;/title&gt;\n&lt;ellipse fill=&quot;none&quot; stroke=&quot;black&quot; cx=&quot;27&quot; cy=&quot;-90&quot; rx=&quot;27&quot; ry=&quot;18&quot;/&gt;\n&lt;text text-anchor=&quot;middle&quot; x=&quot;27&quot; y=&quot;-86.3&quot; font-family=&quot;Times,serif&quot; font-size=&quot;14.00&quot;&gt;a&lt;/text&gt;\n&lt;/g&gt;\n&lt;!-- b --&gt;\n&lt;g id=&quot;node2&quot; class=&quot;node&quot;&gt;\n&lt;title&gt;b&lt;/title&gt;\n&lt;ellipse fill=&quot;none&quot; stroke=&quot;black&quot; cx=&quot;27&quot; cy=&quot;-18&quot; rx=&quot;27&quot; ry=&quot;18&quot;/&gt;\n&lt;text text-anchor=&quot;middle&quot; x=&quot;27&quot; y=&quot;-14.3&quot; font-family=&quot;Times,serif&quot; font-size=&quot;14.00&quot;&gt;b&lt;/text&gt;\n&lt;/g&gt;\n&lt;!-- a&amp;#45;&amp;gt;b --&gt;\n&lt;g id=&quot;edge1&quot; class=&quot;edge&quot;&gt;\n&lt;title&gt;a&amp;#45;&amp;gt;b&lt;/title&gt;\n&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M27,-71.7C27,-63.98 27,-54.71 27,-46.11&quot;/&gt;\n&lt;polygon fill=&quot;black&quot; stroke=&quot;black&quot; points=&quot;30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1&quot;/&gt;\n&lt;/g&gt;\n&lt;/g&gt;\n&lt;/svg&gt;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;\n&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;\n &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;\n&lt;!-- Generated by graphviz version 6.0.1 (20220911.1526)\n --&gt;\n&lt;!-- Pages: 1 --&gt;\n&lt;svg width=&quot;127pt&quot; height=&quot;139pt&quot;\n viewBox=&quot;0.00 0.00 127.00 139.00&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;\n&lt;g id=&quot;graph0&quot; class=&quot;graph&quot; transform=&quot;scale(1 1) rotate(0) translate(4 135)&quot;&gt;\n&lt;polygon fill=&quot;white&quot; stroke=&quot;none&quot; points=&quot;-4,4 -4,-135 123,-135 123,4 -4,4&quot;/&gt;\n&lt;text text-anchor=&quot;middle&quot; x=&quot;59.5&quot; y=&quot;-7.8&quot; font-family=&quot;Times,serif&quot; font-size=&quot;14.00&quot; fill=&quot;red&quot;&gt;My favorite letters&lt;/text&gt;\n&lt;!-- a --&gt;\n&lt;g id=&quot;node1&quot; class=&quot;node&quot;&gt;\n&lt;title&gt;a&lt;/title&gt;\n&lt;ellipse fill=&quot;none&quot; stroke=&quot;black&quot; cx=&quot;59.5&quot; cy=&quot;-113&quot; rx=&quot;27&quot; ry=&quot;18&quot;/&gt;\n&lt;text text-anchor=&quot;middle&quot; x=&quot;59.5&quot; y=&quot;-109.3&quot; font-family=&quot;Times,serif&quot; font-size=&quot;14.00&quot;&gt;a&lt;/text&gt;\n&lt;/g&gt;\n&lt;!-- b --&gt;\n&lt;g id=&quot;node2&quot; class=&quot;node&quot;&gt;\n&lt;title&gt;b&lt;/title&gt;\n&lt;ellipse fill=&quot;none&quot; stroke=&quot;black&quot; cx=&quot;59.5&quot; cy=&quot;-41&quot; rx=&quot;27&quot; ry=&quot;18&quot;/&gt;\n&lt;text text-anchor=&quot;middle&quot; x=&quot;59.5&quot; y=&quot;-37.3&quot; font-family=&quot;Times,serif&quot; font-size=&quot;14.00&quot;&gt;b&lt;/text&gt;\n&lt;/g&gt;\n&lt;!-- a&amp;#45;&amp;gt;b --&gt;\n&lt;g id=&quot;edge1&quot; class=&quot;edge&quot;&gt;\n&lt;title&gt;a&amp;#45;&amp;gt;b&lt;/title&gt;\n&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M59.5,-94.7C59.5,-86.98 59.5,-77.71 59.5,-69.11&quot;/&gt;\n&lt;polygon fill=&quot;black&quot; stroke=&quot;black&quot; points=&quot;63,-69.1 59.5,-59.1 56,-69.1 63,-69.1&quot;/&gt;\n&lt;/g&gt;\n&lt;/g&gt;\n&lt;/svg&gt;\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">digraph</span> <span class="n">finite_state_machine</span> <span class="p">{</span>
+    <span class="n">rankdir</span><span class="o">=</span><span class="n">LR</span><span class="p">;</span>
+    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;8,5&quot;</span>
+
+    <span class="n">node</span> <span class="p">[</span><span class="n">shape</span> <span class="o">=</span> <span class="n">doublecircle</span><span class="p">];</span> <span class="n">S</span><span class="p">;</span>
+    <span class="n">node</span> <span class="p">[</span><span class="n">shape</span> <span class="o">=</span> <span class="n">point</span> <span class="p">];</span> <span class="n">qi</span>
+
+    <span class="n">node</span> <span class="p">[</span><span class="n">shape</span> <span class="o">=</span> <span class="n">circle</span><span class="p">];</span>
+    <span class="n">qi</span> <span class="o">-&gt;</span> <span class="n">S</span><span class="p">;</span>
+    <span class="n">S</span>  <span class="o">-&gt;</span> <span class="n">q1</span> <span class="p">[</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span> <span class="p">];</span>
+    <span class="n">S</span>  <span class="o">-&gt;</span> <span class="n">S</span>  <span class="p">[</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span> <span class="p">];</span>
+    <span class="n">q1</span> <span class="o">-&gt;</span> <span class="n">S</span>  <span class="p">[</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span> <span class="p">];</span>
+    <span class="n">q1</span> <span class="o">-&gt;</span> <span class="n">q2</span> <span class="p">[</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;b&quot;</span> <span class="p">];</span>
+    <span class="n">q2</span> <span class="o">-&gt;</span> <span class="n">q1</span> <span class="p">[</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;b&quot;</span> <span class="p">];</span>
+    <span class="n">q2</span> <span class="o">-&gt;</span> <span class="n">q2</span> <span class="p">[</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;b&quot;</span> <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dot</span> <span class="o">-</span><span class="n">Tpng</span> <span class="n">fsm</span><span class="o">.</span><span class="n">gv</span> <span class="o">-</span><span class="n">o</span> <span class="n">myFiniteStateMachine</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digraph</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">digraph finite_state_machine {</span>
+<span class="s1">    rankdir=LR;</span>
+<span class="s1">    size=&quot;8,5&quot;</span>
+
+<span class="s1">    node [shape = doublecircle]; S;</span>
+<span class="s1">    node [shape = point ]; qi</span>
+
+<span class="s1">    node [shape = circle];</span>
+<span class="s1">    qi -&gt; S;</span>
+<span class="s1">    S  -&gt; q1 [ label = &quot;a&quot; ];</span>
+<span class="s1">    S  -&gt; S  [ label = &quot;a&quot; ];</span>
+<span class="s1">    q1 -&gt; S  [ label = &quot;a&quot; ];</span>
+<span class="s1">    q1 -&gt; q2 [ label = &quot;b&quot; ];</span>
+<span class="s1">    q2 -&gt; q1 [ label = &quot;b&quot; ];</span>
+<span class="s1">    q2 -&gt; q2 [ label = &quot;b&quot; ];</span>
+<span class="s1">}</span>
+<span class="s1">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digraph</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\ndigraph finite_state_machine {\n    rankdir=LR;\n    size=&quot;8,5&quot;\n\n    node [shape = doublecircle]; S;\n    node [shape = point ]; qi\n\n    node [shape = circle];\n    qi -&gt; S;\n    S  -&gt; q1 [ label = &quot;a&quot; ];\n    S  -&gt; S  [ label = &quot;a&quot; ];\n    q1 -&gt; S  [ label = &quot;a&quot; ];\n    q1 -&gt; q2 [ label = &quot;b&quot; ];\n    q2 -&gt; q1 [ label = &quot;b&quot; ];\n    q2 -&gt; q2 [ label = &quot;b&quot; ];\n}\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig2</span> <span class="o">=</span> <span class="o">!</span><span class="nb">echo</span> <span class="s1">&#39;{digraph}&#39;</span> <span class="p">|</span> dot -Tsvg 
+<span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fig2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/figuren_14_0.svg" src="../_images/figuren_14_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">echo</span> <span class="s1">&#39;{digraph}&#39;</span> &gt; digraph.dot
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">_build</span>                   glossary.md              requirements.txt
+_config.yml              hello-world.md           schakelaar.md
+<span class=" -Color -Color-Blue">_static</span>                  input-output-systemen.md stemmen.md
+_toc.yml                 intro.md                 stopwatch.md
+automaten.md             kloppend-hart.md         teller.md
+buttons-events.md        laden.md                 test.svg
+digraph.dot              logo.png                 timers.md
+digraph.png              microbit-cheatsheet.md   valdetectie.md
+events-signalen.md       microbit-kennismaking.md verkeerslichten.md
+<span class=" -Color -Color-Blue">ext</span>                      mu-editor.md             voordedocent.md
+<span class=" -Color -Color-Blue">figs</span>                     python.md
+figuren.ipynb            references.bib
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="o">!</span>dot -Tsvg digraph.dot
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/figuren_18_0.svg" src="../_images/figuren_18_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat digraph.dot
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>digraph finite_state_machine {
+    rankdir=LR;
+    size=&quot;8,5&quot;
+
+    node [shape = doublecircle]; S;
+    node [shape = point ]; qi
+
+    node [shape = circle];
+    qi -&gt; S;
+    S  -&gt; q1 [ label = &quot;a&quot; ];
+    S  -&gt; S  [ label = &quot;a&quot; ];
+    q1 -&gt; S  [ label = &quot;a&quot; ];
+    q1 -&gt; q2 [ label = &quot;b&quot; ];
+    q2 -&gt; q1 [ label = &quot;b&quot; ];
+    q2 -&gt; q2 [ label = &quot;b&quot; ];
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="o">!</span><span class="nb">echo</span> <span class="s1">&#39;{digraph}&#39;</span> <span class="p">|</span> dot -Tpng &gt; digraph.png
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;digraph.png&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/figuren_20_0.png" src="../_images/figuren_20_0.png" />
+</div>
+</div>
+<p>PNG-uitvoer kan niet zomaar verwerkt worden in “display”. Hiervoor moet eigenlijk een tussen-bestand gebruikt worden, zoals in dit voorbeeld.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digraph1</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">digraph finite_state_machine {</span>
+<span class="s1">    rankdir=LR;</span>
+<span class="s1">    size=&quot;8,5&quot;</span>
+<span class="s1">    fontname=&quot;Gill Sans&quot;</span>
+<span class="s1">    label=&quot;Test&quot;</span>
+
+<span class="s1">    node [shape = circle fontname=&quot;Gill Sans&quot;]; s0;</span>
+<span class="s1">    node [shape = point ]; qi</span>
+
+<span class="s1">    node [shape = circle; fontname=&quot;Gill Sans&quot;];</span>
+<span class="s1">    qi -&gt; s0;</span>
+<span class="s1">    s0  -&gt; s1  [ fontname=&quot;Gill Sans&quot; label = &quot;a/L1&quot; ];</span>
+<span class="s1">    s1  -&gt; s2  [ fontname=&quot;Gill Sans&quot; label = &quot;a/L2&quot; ];</span>
+<span class="s1">    s2  -&gt; s3  [ fontname=&quot;Gill Sans&quot; label = &quot;a/L3&quot; ];</span>
+<span class="s1">    s3  -&gt; s0  [ fontname=&quot;Gill Sans&quot; label = &quot;a/L0&quot; ];</span>
+<span class="s1">}</span>
+<span class="s1">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig3</span> <span class="o">=</span> <span class="o">!</span><span class="nb">echo</span> <span class="s1">&#39;{digraph1}&#39;</span> <span class="p">|</span> dot -Tsvg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#39;,
+ &#39;&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;&#39;,
+ &#39; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;&#39;,
+ &#39;&lt;!-- Generated by graphviz version 6.0.1 (20220911.1526)&#39;,
+ &#39; --&gt;&#39;,
+ &#39;&lt;!-- Title: finite_state_machine Pages: 1 --&gt;&#39;,
+ &#39;&lt;svg width=&quot;379pt&quot; height=&quot;100pt&quot;&#39;,
+ &#39; viewBox=&quot;0.00 0.00 379.39 99.70&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;&#39;,
+ &#39;&lt;g id=&quot;graph0&quot; class=&quot;graph&quot; transform=&quot;scale(1 1) rotate(0) translate(4 95.7)&quot;&gt;&#39;,
+ &#39;&lt;title&gt;finite_state_machine&lt;/title&gt;&#39;,
+ &#39;&lt;polygon fill=&quot;white&quot; stroke=&quot;none&quot; points=&quot;-4,4 -4,-95.7 375.39,-95.7 375.39,4 -4,4&quot;/&gt;&#39;,
+ &#39;&lt;text text-anchor=&quot;middle&quot; x=&quot;185.69&quot; y=&quot;-7.8&quot; font-family=&quot;Gill Sans&quot; font-size=&quot;14.00&quot;&gt;Test&lt;/text&gt;&#39;,
+ &#39;&lt;!-- s0 --&gt;&#39;,
+ &#39;&lt;g id=&quot;node1&quot; class=&quot;node&quot;&gt;&#39;,
+ &#39;&lt;title&gt;s0&lt;/title&gt;&#39;,
+ &#39;&lt;ellipse fill=&quot;none&quot; stroke=&quot;black&quot; cx=&quot;59.45&quot; cy=&quot;-41.85&quot; rx=&quot;18.7&quot; ry=&quot;18.7&quot;/&gt;&#39;,
+ &#39;&lt;text text-anchor=&quot;middle&quot; x=&quot;59.45&quot; y=&quot;-38.15&quot; font-family=&quot;Gill Sans&quot; font-size=&quot;14.00&quot;&gt;s0&lt;/text&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;!-- s1 --&gt;&#39;,
+ &#39;&lt;g id=&quot;node3&quot; class=&quot;node&quot;&gt;&#39;,
+ &#39;&lt;title&gt;s1&lt;/title&gt;&#39;,
+ &#39;&lt;ellipse fill=&quot;none&quot; stroke=&quot;black&quot; cx=&quot;157.14&quot; cy=&quot;-72.85&quot; rx=&quot;18.7&quot; ry=&quot;18.7&quot;/&gt;&#39;,
+ &#39;&lt;text text-anchor=&quot;middle&quot; x=&quot;157.14&quot; y=&quot;-69.15&quot; font-family=&quot;Gill Sans&quot; font-size=&quot;14.00&quot;&gt;s1&lt;/text&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;!-- s0&amp;#45;&amp;gt;s1 --&gt;&#39;,
+ &#39;&lt;g id=&quot;edge2&quot; class=&quot;edge&quot;&gt;&#39;,
+ &#39;&lt;title&gt;s0&amp;#45;&amp;gt;s1&lt;/title&gt;&#39;,
+ &#39;&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M77.56,-47.39C91.89,-52.03 112.61,-58.75 129.18,-64.11&quot;/&gt;&#39;,
+ &#39;&lt;polygon fill=&quot;black&quot; stroke=&quot;black&quot; points=&quot;128.27,-67.5 138.86,-67.25 130.43,-60.84 128.27,-67.5&quot;/&gt;&#39;,
+ &#39;&lt;text text-anchor=&quot;middle&quot; x=&quot;108.3&quot; y=&quot;-65.65&quot; font-family=&quot;Gill Sans&quot; font-size=&quot;14.00&quot;&gt;a/L1&lt;/text&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;!-- qi --&gt;&#39;,
+ &#39;&lt;g id=&quot;node2&quot; class=&quot;node&quot;&gt;&#39;,
+ &#39;&lt;title&gt;qi&lt;/title&gt;&#39;,
+ &#39;&lt;ellipse fill=&quot;black&quot; stroke=&quot;black&quot; cx=&quot;1.8&quot; cy=&quot;-41.85&quot; rx=&quot;1.8&quot; ry=&quot;1.8&quot;/&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;!-- qi&amp;#45;&amp;gt;s0 --&gt;&#39;,
+ &#39;&lt;g id=&quot;edge1&quot; class=&quot;edge&quot;&gt;&#39;,
+ &#39;&lt;title&gt;qi&amp;#45;&amp;gt;s0&lt;/title&gt;&#39;,
+ &#39;&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M3.77,-41.85C7.14,-41.85 18.81,-41.85 30.51,-41.85&quot;/&gt;&#39;,
+ &#39;&lt;polygon fill=&quot;black&quot; stroke=&quot;black&quot; points=&quot;30.6,-45.35 40.6,-41.85 30.6,-38.35 30.6,-45.35&quot;/&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;!-- s2 --&gt;&#39;,
+ &#39;&lt;g id=&quot;node4&quot; class=&quot;node&quot;&gt;&#39;,
+ &#39;&lt;title&gt;s2&lt;/title&gt;&#39;,
+ &#39;&lt;ellipse fill=&quot;none&quot; stroke=&quot;black&quot; cx=&quot;254.84&quot; cy=&quot;-72.85&quot; rx=&quot;18.7&quot; ry=&quot;18.7&quot;/&gt;&#39;,
+ &#39;&lt;text text-anchor=&quot;middle&quot; x=&quot;254.84&quot; y=&quot;-69.15&quot; font-family=&quot;Gill Sans&quot; font-size=&quot;14.00&quot;&gt;s2&lt;/text&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;!-- s1&amp;#45;&amp;gt;s2 --&gt;&#39;,
+ &#39;&lt;g id=&quot;edge3&quot; class=&quot;edge&quot;&gt;&#39;,
+ &#39;&lt;title&gt;s1&amp;#45;&amp;gt;s2&lt;/title&gt;&#39;,
+ &#39;&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M176.14,-72.85C190.05,-72.85 209.54,-72.85 225.53,-72.85&quot;/&gt;&#39;,
+ &#39;&lt;polygon fill=&quot;black&quot; stroke=&quot;black&quot; points=&quot;225.92,-76.35 235.92,-72.85 225.92,-69.35 225.92,-76.35&quot;/&gt;&#39;,
+ &#39;&lt;text text-anchor=&quot;middle&quot; x=&quot;205.99&quot; y=&quot;-76.65&quot; font-family=&quot;Gill Sans&quot; font-size=&quot;14.00&quot;&gt;a/L2&lt;/text&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;!-- s3 --&gt;&#39;,
+ &#39;&lt;g id=&quot;node5&quot; class=&quot;node&quot;&gt;&#39;,
+ &#39;&lt;title&gt;s3&lt;/title&gt;&#39;,
+ &#39;&lt;ellipse fill=&quot;none&quot; stroke=&quot;black&quot; cx=&quot;352.54&quot; cy=&quot;-41.85&quot; rx=&quot;18.7&quot; ry=&quot;18.7&quot;/&gt;&#39;,
+ &#39;&lt;text text-anchor=&quot;middle&quot; x=&quot;352.54&quot; y=&quot;-38.15&quot; font-family=&quot;Gill Sans&quot; font-size=&quot;14.00&quot;&gt;s3&lt;/text&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;!-- s2&amp;#45;&amp;gt;s3 --&gt;&#39;,
+ &#39;&lt;g id=&quot;edge4&quot; class=&quot;edge&quot;&gt;&#39;,
+ &#39;&lt;title&gt;s2&amp;#45;&amp;gt;s3&lt;/title&gt;&#39;,
+ &#39;&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M272.95,-67.31C287.29,-62.66 308.01,-55.95 324.57,-50.58&quot;/&gt;&#39;,
+ &#39;&lt;polygon fill=&quot;black&quot; stroke=&quot;black&quot; points=&quot;325.82,-53.86 334.26,-47.45 323.66,-47.2 325.82,-53.86&quot;/&gt;&#39;,
+ &#39;&lt;text text-anchor=&quot;middle&quot; x=&quot;303.69&quot; y=&quot;-65.65&quot; font-family=&quot;Gill Sans&quot; font-size=&quot;14.00&quot;&gt;a/L3&lt;/text&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;!-- s3&amp;#45;&amp;gt;s0 --&gt;&#39;,
+ &#39;&lt;g id=&quot;edge5&quot; class=&quot;edge&quot;&gt;&#39;,
+ &#39;&lt;title&gt;s3&amp;#45;&amp;gt;s0&lt;/title&gt;&#39;,
+ &#39;&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M333.34,-41.85C284.13,-41.85 148.19,-41.85 88.81,-41.85&quot;/&gt;&#39;,
+ &#39;&lt;polygon fill=&quot;black&quot; stroke=&quot;black&quot; points=&quot;88.66,-38.35 78.66,-41.85 88.66,-45.35 88.66,-38.35&quot;/&gt;&#39;,
+ &#39;&lt;text text-anchor=&quot;middle&quot; x=&quot;205.99&quot; y=&quot;-45.65&quot; font-family=&quot;Gill Sans&quot; font-size=&quot;14.00&quot;&gt;a/L0&lt;/text&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;/g&gt;&#39;,
+ &#39;&lt;/svg&gt;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fig3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/figuren_25_0.svg" src="../_images/figuren_25_0.svg" /></div>
+</div>
+<p>Ik vind persoonlijk deze layout minder fraai; maar ik weet niet wat ik daaraan kan aanpassen.</p>
+<p>Als (schreefloos) font is “Gill Sans” duidelijk te prefereren (minder massief) boven Arial of Helvetica.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./figuren"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Eelco Dijkstra<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

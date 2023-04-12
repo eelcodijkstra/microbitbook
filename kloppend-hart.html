@@ -1,0 +1,782 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Kloppend hart &#8212; Microbit-boek</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/assessment.css" />
+    <link rel="stylesheet" type="text/css" href="_static/progress.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/assessment.js"></script>
+    <script src="_static/progress.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'kloppend-hart';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Zoeken" href="search.html" />
+    <link rel="next" title="4. Hello World!" href="hello-world.html" />
+    <link rel="prev" title="2. Programma laden op de microbit" href="laden.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welkom bij deze cursus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">microbit opdrachten</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="microbit-kennismaking.html">1. Leer de microbit kennen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="laden.html">2. Programma laden op de microbit</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Kloppend hart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hello-world.html">4. Hello World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buttons-events.html">5. Buttons en events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teller.html">6. Teller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimmer.html">7. Dimmer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valdetectie.html">8. Valdetectie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stemmen.html">9. Stemmen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stopwatch.html">10. Stopwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeslot.html">11. Codeslot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="verkeerslichten.html">12. Verkeerslichten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binaire-klok.html">13. Binaire klok</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cellulaire-automaat.html">14. Cellulaire automaat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opdrachten/game-of-life.html">15. Game of Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opdrachten/serie-opteller.html">16. Serie-opteller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="led-met-timer.html">17. LED met timer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="afstandssensor.html">18. Afstandssensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pir-sensor.html">19. Energiebesparende verlichting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">concepten</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="concepten/events-signalen.html">Events en signalen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepten/cellulaire-automaten.html">Cellulaire automaten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepten/timers.html">Timers en timer-events (Python)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepten/automaten.html">Eindige automaten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepten/input-output-systemen.html">input-output systemen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">referentie</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="referentie/mu-editor.html">De Mu-editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="referentie/python.html">Python - cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="referentie/microbit-cheatsheet.html">microbit cheat sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="referentie/glossary.html">Woordenlijst</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">voor de docent</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="voordedocent.html">Voor de docent</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/eelcodijkstra/microbitbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/eelcodijkstra/microbitbook/issues/new?title=Issue%20on%20page%20%2Fkloppend-hart.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/kloppend-hart.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kloppend hart</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toon-een-enkele-figuur">3.1. Toon een enkele figuur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#een-staps-animatie">3.2. Een-staps animatie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herhaal-de-animatie-stappen">3.3. Herhaal de animatie-stappen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opmerkingen">3.4. Opmerkingen</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="kloppend-hart">
+<h1><span class="section-number">3. </span>Kloppend hart<a class="headerlink" href="#kloppend-hart" title="Permalink naar deze titel">#</a></h1>
+<p>In deze les maak je een eenvoudige animatie van een kloppend hart op het microbit-display.
+Je bouwt dit op in een aantal stappen, te beginnen met het programma om alleen een hart te tonen.</p>
+<div class="admonition-concepten admonition">
+<p class="admonition-title">Concepten</p>
+<p>import, display, image, pixels, herhaling</p>
+</div>
+<section id="toon-een-enkele-figuur">
+<h2><span class="section-number">3.1. </span>Toon een enkele figuur<a class="headerlink" href="#toon-een-enkele-figuur" title="Permalink naar deze titel">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image-heart.png"><img alt="_images/image-heart.png" src="_images/image-heart.png" style="width: 200px;" /></a>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+</div>
+</div>
+</div>
+<p>In de eerst les heb je een programma op de microbit geladen om een hart op het display te tonen.
+De Python-tekst van dit programma:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Wat betekent dit?</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Over de begrippen <em>module</em>, <em>class</em> en <em>object</em> hoef je je nu nog niet druk te maken. Daar komen we later uitgebreider op terug. Het is voldoende als je deze voorbeelden in grote lijnen begrijpt.</p>
+</aside>
+<ul class="simple">
+<li><p>voordat je de opdrachten van de microbit-module kunt gebruiken, moet je deze eerst <em>importeren</em>. De microbit-module is een grote verzameling definities voor het gebruik van de microbit. Zie <a class="reference external" href="https://microbit-micropython.readthedocs.io/en/v2-docs/microbit.html">microbit</a>. Deze module bevat onder andere de <code class="docutils literal notranslate"><span class="pre">display</span></code>-module voor het aansturen van het display.</p></li>
+<li><p>de <code class="docutils literal notranslate"><span class="pre">show</span></code>-functie van de <code class="docutils literal notranslate"><span class="pre">display</span></code>-module: <code class="docutils literal notranslate"><span class="pre">display.show(fig)</span></code> toont een figuur op het display. Zie <a class="reference external" href="https://microbit-micropython.readthedocs.io/en/v2-docs/display.html#microbit.display.show">microbit.display.show</a></p></li>
+<li><p>als figuur gebruiken we het <code class="docutils literal notranslate"><span class="pre">HEART</span></code>-object (een hart) van de <code class="docutils literal notranslate"><span class="pre">Image</span></code> class: zie <a class="reference external" href="https://microbit-micropython.readthedocs.io/en/v2-docs/image.html#attributes">images</a></p></li>
+</ul>
+<p><strong>Stappen</strong></p>
+<ul class="simple">
+<li><p>zie de stappen bij het laden van een programma op de microbit</p></li>
+</ul>
+<p><strong>Variaties</strong></p>
+<p>Als het programma werkt kun je dit op allerlei manieren aanpassen, en de aangepaste code op je microbit laden.
+Zorg ervoor dat je je programma na elke aanpassing eerst bewaart (“Save”) op je computer en daarna naar de microbit stuurt (“Flash”).</p>
+<ul class="simple">
+<li><p>kies een andere figuur uit de lijst van ingebouwde figuren (<a class="reference external" href="https://microbit-micropython.readthedocs.io/en/v2-docs/image.html#attributes">images</a>)</p></li>
+<li><p>maak zelf een figuur, zoals bijvoorbeeld:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span>
+              <span class="s2">&quot;90009:&quot;</span>
+              <span class="s2">&quot;09090:&quot;</span>
+              <span class="s2">&quot;00900:&quot;</span>
+              <span class="s2">&quot;09090:&quot;</span>
+              <span class="s2">&quot;90009&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Het display bestaat uit 5 bij 5 ledjes, de “pixels” van het display.
+In het bovenstaande image geeft elk cijfer de helderheid van het overeenkomstige pixel aan: <code class="docutils literal notranslate"><span class="pre">0</span></code> is uit, en <code class="docutils literal notranslate"><span class="pre">9</span></code> is maximale helderheid. (<em>Vraag:</em> wat stelt het bovenstaande <code class="docutils literal notranslate"><span class="pre">Image</span></code> voor?)</p>
+</section>
+<section id="een-staps-animatie">
+<h2><span class="section-number">3.2. </span>Een-staps animatie<a class="headerlink" href="#een-staps-animatie" title="Permalink naar deze titel">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image-heart.png"><img alt="_images/image-heart.png" src="_images/image-heart.png" style="width: 200px;" /></a>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image-heart-small.png"><img alt="_images/image-heart-small.png" src="_images/image-heart-small.png" style="width: 200px;" /></a>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+</div>
+</div>
+</div>
+<p>Een animatie bestaan uit een reeks opeenvolgende beelden.
+Je kunt een <em>kloppend hart</em> maken door het “grote” hart af te wisselen met een kleiner hart.
+Probeer als eerste stap het volgende programma om twee figuren na elkaar te tonen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART_SMALL</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Uitleg</strong>: je ziet hier twee opdrachten na elkaar: deze opdrachten worden in deze volgorde na elkaar uitgevoerd.</p>
+<p><strong>Vraag</strong>: Wat zie je als je dit programma op de microbit uitvoert? Hoe komt dat? En hoe zou je dat kunnen oplossen?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Je ziet alleen de laatste figuur, het kleine hart.
+Computers, ook zulke eenvoudige als een microbit, zijn (heel) veel sneller dan mensen: je ziet de eerste figuur niet, deze wordt direct overschreven door de tweede figuur.</p>
+</div>
+</details><p>Je kunt de microbit tussen twee opdrachten laten wachten met de functie <code class="docutils literal notranslate"><span class="pre">utime.sleep(x)</span></code>. Hierin is <code class="docutils literal notranslate"><span class="pre">x</span></code> het aantal seconden; dit mag ook een decimale fractie zijn, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">0.1</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART</span><span class="p">)</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART_SMALL</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Uitleg</strong></p>
+<ul class="simple">
+<li><p>we gebruiken (importeren) de module <code class="docutils literal notranslate"><span class="pre">utime</span></code> (zie: <a class="reference external" href="https://microbit-micropython.readthedocs.io/en/v2-docs/utime.html">utime</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utime.sleep(1)</span></code> zorgt ervoor dat de microbit 1 seconde wacht (”slaapt”; er worden dan geen opdrachten uitgevoerd) en daarna doorgaat.</p></li>
+</ul>
+<p><strong>Variaties</strong></p>
+<ul class="simple">
+<li><p>probeer andere wachttijden, ook kleiner dan een seconde</p></li>
+<li><p>breid het programma uit zodat dit na het kleine hartje weer het grotere hart toont</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Uitwerking<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART</span><span class="p">)</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART_SMALL</span><span class="p">)</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="herhaal-de-animatie-stappen">
+<h2><span class="section-number">3.3. </span>Herhaal de animatie-stappen<a class="headerlink" href="#herhaal-de-animatie-stappen" title="Permalink naar deze titel">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image-heart.png"><img alt="_images/image-heart.png" src="_images/image-heart.png" style="width: 200px;" /></a>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image-heart-small.png"><img alt="_images/image-heart-small.png" src="_images/image-heart-small.png" style="width: 200px;" /></a>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image-heart.png"><img alt="_images/image-heart.png" src="_images/image-heart.png" style="width: 200px;" /></a>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image-heart-small.png"><img alt="_images/image-heart-small.png" src="_images/image-heart-small.png" style="width: 200px;" /></a>
+</figure>
+</div>
+</div>
+</div>
+<p>In de voorafgaande opdracht heb je gezien dat je met opeenvolgende <code class="docutils literal notranslate"><span class="pre">show</span></code>-opdrachten opeenvolgende figuren op het display kunt laten zien. Je gebruikt dan de <code class="docutils literal notranslate"><span class="pre">sleep</span></code>-functie om de figuur lang genoeg op het display te houden voordat deze overschreven wordt.</p>
+<p>In deze opdracht maak je een “oneindige” herhaling van afwisselende figuren. Als je dit in het juiste tempo doet, geeft dit het effect van een animatie.</p>
+<p>Code voor <em>blinking heart</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART</span><span class="p">)</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART_SMALL</span><span class="p">)</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Uitleg bij dit programma:</p>
+<ul class="simple">
+<li><p>de Python-opdracht <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span> <span class="pre">actie</span></code> herhaalt <code class="docutils literal notranslate"><span class="pre">actie</span></code> zolang de voorwaarde <code class="docutils literal notranslate"><span class="pre">True</span></code> geldt, met andere woorden: blijft steeds <code class="docutils literal notranslate"><span class="pre">actie</span></code> herhalen (totdat de <em>power</em> van de microbit uitvalt).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actie</span></code> kan uit meerdere opdrachten bestaan: deze schrijf je dan <em>onder</em> de <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span></code>. Om aan te geven dat deze opdrachten bij de <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span></code> horen, laat je deze 4 spaties inspringen. <strong>Deze witruimte heeft betekenis in Python!</strong></p></li>
+</ul>
+<p><strong>Vraag</strong>: waarom is de tweede <code class="docutils literal notranslate"><span class="pre">sleep</span></code> nodig?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De tweede <code class="docutils literal notranslate"><span class="pre">sleep</span></code> komt voor het “grote” hart in de volgende herhaling van de lus. Als je deze <code class="docutils literal notranslate"><span class="pre">sleep</span></code> weglaat is er geen tijd tussen het kleine hart en het daarop volgende grote hart, en zie je dus alleen maar het grote hart.</p>
+</div>
+</details><p><strong>Variatie(s)</strong>:</p>
+<ul class="simple">
+<li><p>het is niet nodig dat de wachttijden voor beide figuren gelijk zijn. Probeer verschillende tijden voor de <code class="docutils literal notranslate"><span class="pre">sleep</span></code>-aanroepen, om (i) het tempo van de hartslag te verhogen of te verlagen: het gaat dan om de som van de beide <code class="docutils literal notranslate"><span class="pre">sleep</span></code>-argumenten; of om (ii) een meer “dynamische” hartslag te krijgen, met bijvoorbeeld een kortere tijd voor het kleine hart: het gaat dan om de verhouding tussen de beide <code class="docutils literal notranslate"><span class="pre">sleep</span></code>-argumenten.</p></li>
+<li><p>probeer een animatie met andere figuren. Zie bijvoorbeeld: <a class="reference external" href="https://microbit-micropython.readthedocs.io/en/v2-docs/tutorials/images.html#animation">images-animation</a></p></li>
+</ul>
+<p><strong>Vraag</strong>: wat zie je op het microbit display bij het volgende programma?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART</span><span class="p">)</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART_SMALL</span><span class="p">)</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Je ziet alleen het grote hart: de opdrachten die niet ingesprongen zijn horen niet bij het <code class="docutils literal notranslate"><span class="pre">while</span></code>-statement, en worden na dit statement uitgevoerd. Maar: het <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span> <span class="pre">...</span></code> - statement blijft herhalen, en eindigt nooit: de opdrachten daarna worden dus nooit uitgevoerd.</p>
+</div>
+</details></section>
+<section id="opmerkingen">
+<h2><span class="section-number">3.4. </span>Opmerkingen<a class="headerlink" href="#opmerkingen" title="Permalink naar deze titel">#</a></h2>
+<p>Door het gebruik van herhaling kun je in een kort programma een heel lang proces beschrijven.</p>
+<p>De herhaling met <code class="docutils literal notranslate"><span class="pre">True</span></code> als voorwaarde is een speciaal geval. Deze kom je eigenlijk alleen tegen in besturingsprogramma’s zoals voor de microbit. In “normale” programma’s gebruik je een voorwaarde die uiteindelijk (na 0 of meer herhalingen) False oplevert.</p>
+<hr class="docutils" />
+<p>Vraag: wat kun je zeggen over de opdrachten die je niet-ingesprongen na de <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span></code> schrijft, als in het onderstaande programma:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART</span><span class="p">)</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HEART_SMALL</span><span class="p">)</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "eelcodijkstra/microbitbook",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="laden.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Programma laden op de microbit</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hello-world.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Hello World!</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toon-een-enkele-figuur">3.1. Toon een enkele figuur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#een-staps-animatie">3.2. Een-staps animatie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herhaal-de-animatie-stappen">3.3. Herhaal de animatie-stappen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opmerkingen">3.4. Opmerkingen</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door Eelco Dijkstra
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

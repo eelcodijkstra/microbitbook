@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Cellulaire automaten &#8212; Microbit-boek</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/assessment.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/progress.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/assessment.js"></script>
+    <script src="../../_static/progress.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Microbit-boek</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welkom bij deze cursus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  microbit opdrachten
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../microbit-kennismaking.html">
+   1. Leer de microbit kennen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../laden.html">
+   2. Programma laden op de microbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../kloppend-hart.html">
+   3. Kloppend hart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../hello-world.html">
+   4. Hello World!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../buttons-events.html">
+   5. Buttons en events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../teller.html">
+   6. Teller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../dimmer.html">
+   7. Dimmer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../valdetectie.html">
+   8. Valdetectie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../stemmen.html">
+   9. Stemmen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../stopwatch.html">
+   10. Stopwatch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../codeslot.html">
+   11. Codeslot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../verkeerslichten.html">
+   12. Verkeerslichten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../binaire-klok.html">
+   13. Binaire klok
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  referentie
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mu-editor.html">
+   De Mu-editor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python.html">
+   Python - cheatsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../microbit-cheatsheet.html">
+   microbit cheat sheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../events-signalen.html">
+   Events en signalen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../timers.html">
+   Timers en timer-events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../automaten.html">
+   Eindige automaten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../input-output-systemen.html">
+   input-output systemen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cellulaire-automaten.html">
+   Cellulaire automaten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary.html">
+   Woordenlijst
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  voor de docent
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../voordedocent.html">
+   Voor de docent
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/eelcodijkstra/microbitbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/eelcodijkstra/microbitbook/issues/new?title=Issue%20on%20page%20%2Freferentie/figs/cellulaire-automaten.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/referentie/figs/cellulaire-automaten.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-en-verdieping">
+   Links en verdieping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opdrachten">
+   Opdrachten
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Cellulaire automaten</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-en-verdieping">
+   Links en verdieping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opdrachten">
+   Opdrachten
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="cellulaire-automaten">
+<span id="id1"></span><h1>Cellulaire automaten<a class="headerlink" href="#cellulaire-automaten" title="Permalink to this headline">#</a></h1>
+<div class="admonition-begrippen admonition">
+<p class="admonition-title">Begrippen</p>
+<ul class="simple">
+<li><p>ééndimensionale cellulaire automaat, rule 110, weergave van proces</p></li>
+</ul>
+</div>
+<p>Het Game of Life is een voorbeeld van een tweedimensionale cellulaire automaat:
+het spel speelt zich af in het platte vlak.
+In dit gedeelte gaan we verder in op <em>eendimensionale cellulaire automaten</em>:
+een toestand bestaat uit een reeks cellen op één lijn.
+Je kunt de opeenvolgende toestanden dan onder elkaar plaatsen:
+in het platte vlak zie je dan in één oogopslag het proces: de ontwikkeling van het algoritme in de tijd.</p>
+<p>In een eendimensionale cellulaire automaat heeft een cel 2 buren: links en rechts.
+De volgende toestand van een cel hangt af van de huidige toestand van de cel en zijn twee buren.
+Voor 3 cellen heb je 8 mogelijke configuraties.
+De regels van de automaat beschrijven voor elke configuratie welke kleur cel deze oplevert.</p>
+<p>Een voorbeeld van een automaat: (rule 110 = 0110 1110)</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="referentie/figs/Rules.png"><img alt="referentie/figs/Rules.png" src="referentie/figs/Rules.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text">Regels voor de automaat (rule 110)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Met behulp van deze regels kun je vanuit een begintoestand de volgende toestanden uitrekenen.
+We tekenen de opeenvolgende toestanden (of generaties) onder elkaar.
+In de figuur hieronder is dan gedaan voor een begintoestand met één zwarte cel,
+met de bovenstaande regels.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/Field.png"><img alt="../../_images/Field.png" src="../../_images/Field.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text">1-dimensionele cellulaire automaat: de eerste regel is de begintoestand,
+de volgende regels zijn de opeenvolgende toestanden.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In plaats van met de “vormen” zwart en wit kunnen we ook met symbolen werken,
+bijvoorbeeld 0 en 1.
+(We kunnen allerlei symbolen gebruiken, als we maar twee waarden kunnen onderscheiden.)</p>
+<p>In tabelvorm worden de regels dan:</p>
+<table class="colwidths-auto table" id="id4">
+<caption><span class="caption-text">Rule 110</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>0</p></th>
+<th class="text-align:center head"><p>000</p></th>
+<th class="text-align:center head"><p>0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>001</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>2</p></td>
+<td class="text-align:center"><p>010</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>3</p></td>
+<td class="text-align:center"><p>011</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>4</p></td>
+<td class="text-align:center"><p>100</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>5</p></td>
+<td class="text-align:center"><p>101</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>6</p></td>
+<td class="text-align:center"><p>110</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>7</p></td>
+<td class="text-align:center"><p>111</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Dit voorbeeld is uitgewerkt in een <code class="docutils literal notranslate"><span class="pre">spreadsheet</span> <span class="pre">&lt;https://docs.google.com/spreadsheets/d/1vW5YHQMnERHqh9mjamJiN_tSWtZc9RtfsdraQ5LsH5E/edit?usp=sharing&gt;</span></code>_.
+Deze kun je ook downloaden via :download:<code class="docutils literal notranslate"><span class="pre">download</span> <span class="pre">cellulaire</span> <span class="pre">automaten</span> <span class="pre">spreadsheet</span> <span class="pre">&lt;Cellular-automaton.ods&gt;</span></code>.</p>
+<div class="admonition-weergave-van-het-proces-in-een-spreadsheet admonition">
+<p class="admonition-title">Weergave van het proces in een spreadsheet</p>
+<p>In de spreadsheet staan de opeenvolgende stappen van het proces onder elkaar.
+Zo kun je de loop van het proces volgen.
+Deze aanpak zullen we ook in volgende opdrachten gebruiken.
+De eerste rij bevat de begintoestand, soms met de invoer.
+Elke volgende rij bevat de volgende stap in het algoritme - waarvan het resultaat dan in cellen van de rij zichtbaar wordt.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Voor de spreadsheet met de cellulaire automaat hebben we ook tussenresultaten,
+namelijk een codering van het patroon van de cel en de buren;
+voor de overzichtelijkheid hebben we deze in een apart vel (sheet, tab) geplaatst.
+</pre></div>
+</div>
+</div>
+<section id="links-en-verdieping">
+<h2>Links en verdieping<a class="headerlink" href="#links-en-verdieping" title="Permalink to this headline">#</a></h2>
+<p>In het Wikipedia-artikel over <code class="docutils literal notranslate"><span class="pre">Rule</span> <span class="pre">110</span> <span class="pre">&lt;https://en.wikipedia.org/wiki/Rule_110&gt;</span></code>_ vind je een beschrijving van het gedrag van deze cellulaire automaat.
+Een bijzondere eigenschap is dat deze automaat <em>Turing-complete</em> is:
+je kunt daarmee in principe alle mogelijke berekeningen uitvoeren.
+Voor zover bekend is dit het eenvoudigste systeem waarmee dit kan.</p>
+<p>Meer over cellulaire automaten vind je in het boek van Stephen Wolfram, A New Kind of Science.
+Dit boek is online beschikbaar, via <a class="reference external" href="https://www.wolframscience.com">https://www.wolframscience.com</a>.
+In dit boek vind je veel fraaie figuren die ontstaan uit zulke eenvoudige regels en automaten.
+Je vindt er ook figuren uit de natuur die soms verrassend sterk lijken op deze figuren,
+zoals in hoofdstuk 8 (bijv. p. 423, p. 426).</p>
+</section>
+<section id="opdrachten">
+<h2>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Maak de figuur van de cellulaire automaat hierboven af,
+door de toestanden 5 tot en met 8 te berekenen met de gegeven regels.
+Controleer je uitwerking met de <code class="docutils literal notranslate"><span class="pre">spreadsheet</span> <span class="pre">&lt;https://docs.google.com/spreadsheets/d/1vW5YHQMnERHqh9mjamJiN_tSWtZc9RtfsdraQ5LsH5E/edit?usp=sharing&gt;</span></code>_.
+Om zelf met deze spreadsheet te werken, moet je eerst een kopie maken,
+via Google Drive, of via :download:<code class="docutils literal notranslate"><span class="pre">rule</span> <span class="pre">110</span> <span class="pre">spreadsheet</span> <span class="pre">&lt;Cellular-automaton.ods&gt;</span></code>.
+In deze spreadsheet vul je de begintoestand (eerste regel) in:
+de volgende toestanden worden dan uitgerekend.</p></li>
+<li><p>Je kunt in de spreadsheet ook experimenteren met andere regels.
+In de sheet (tab) “rules” kun je het nummer van een andere regel invoeren,
+in <em>omgekeerde</em> binaire notatie.
+Verander het regelnummer van “110” in “18” (0100 1000).
+Welk effect heeft dit op het resultaat?</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./referentie/figs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Eelco Dijkstra<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
