@@ -26,7 +26,7 @@ som:  10001
 ## Gebruik van het programma
 
 :::{admonition} Installeer het programma op de microbit
-Kopieer het programma hieronder naar de microbit Python-editor, en laad het naar je microbit.
+Kopieer {ref}`seriele-opteller-programma` hieronder naar de microbit Python-editor, en laad het naar je microbit.
 (Of voer het uit in de simulator.)
 :::
 
@@ -63,6 +63,118 @@ Decimaal is dit: 170 plus 76 is 246.
 * feedback?
 :::
 
+## Optellen met een eindige automaat
+
+Deze serie-opteller is gebaseerd op de volgende eindige automaat:
+
+:::{figure} figs/serie-opteller.png
+:width: 500
+:align: center
+
+Serie-opteller.
+'a' staat voor knop A, 'b' voor knop B.
+De notatie 'b/01' betekent: bij indrukken van knop B, genereer uitvoer 01.
+
+:::
+
+**Opdracht.** Gan na dat er steeds na tweemaal indrukken van een knop (A of B) uitvoer gegenereerd wordt.
+
+Deze automaat geeft een (erg eenvoudig) algoritme voor het optellen van 2 binaire getallen, op basis van de invoer- en uitvoer-symbolen (vormen). Merk op dat er nergens in dit algoritme een "+" voorkomt: het werkt volledig op basis van de vormen. Dit is een voorbeeld van rekenen als "schuiven met vormen, volgens bepaalde regels" - waarbij die vormen verder niet geïnterpreteerd worden.
+
+Deze automaat werkt als volgt:
+
+* de toestanden c0 en c1 geven aan dat de "carry" (overdracht) van de vorige optelling 0 of 1 was. (c1 betekent: "1 onthouden" van de vorige optelling.)
+* s0 staat voor "som tot nu toe: 0", na de invoer van 1 symbool (het bit van X), s1: "som is 1", s2: "som is 2"
+* bij de invoer van elk 2e symbool (het bit van Y) vindt de output van de som plaats, en is de nieuwe toestand c0 of c1, afhankelijk van het cijfer dat onthouden moet worden.
+* de uitvoer "01" betekent: 0 onthouden (overdracht), vul in: 1.
+
+
+## Van automaat naar programma
+
+De bovenstaande automaat kun je op een systematische manier omzetten naar een programma.
+Hiervoor zet je de automaat eerst om in tabelvorm.
+
+Deze automaat in tabelvorm:
+
+| state | input | output | next   |
+| :--   | :--   | :--    | :--    |
+| c0    | a     |        | s0     |
+| c0    | b     |        | s1     |
+| s0    | a     | 0      | c0     |
+| s0    | b     | 1      | c0     |
+| s1    | a     | 1      | c0     |
+| s1    | b     | 0      | c1     |
+| c1    | a     |        | s1     |
+| c1    | b     |        | s2     |
+| s2    | a     | 0      | c1     |
+| s2    | b     | 1      | c1     |
+
+Sorteren op input, in plaats van op state, geeft:
+
+| state | input | output | next   |
+| :--   | :--   | :--    | :--    |
+| c0    | a     |        | s0     |
+| s0    | a     | 0      | c0     |
+| s1    | a     | 1      | c0     |
+| c1    | a     |        | s1     |
+| s2    | a     | 0      | c1     |
+| c0    | b     |        | s1     |
+| s0    | b     | 1      | c0     |
+| s1    | b     | 0      | c1     |
+| c1    | b     |        | s2     |
+| s2    | b     | 1      | c1     |
+
+In programmavorm wordt dit:
+
+```Python
+def handle_a():
+    if state == c0:
+        state = s0
+    elif state == s0:
+        state = c0
+        output_sum(0, 0)
+    elif state == s1:
+        state = c0
+        output_sum(0, 1)
+    elif state == c1:   
+        state = s1
+    elif state == s2:
+        state = c1
+        output_sum(1, 0)
+        
+def handle_b():
+    if state == c0:
+        state = s1
+    elif state == s0:
+        state = c0
+        output_sum(0, 1)
+    elif state == s1:
+        state = c1
+        output_sum(1, 0)
+    elif state == c1:   
+        state = s2
+    elif state == s2:
+        state = c1
+        output_sum(1, 1)
+        
+state = c0
+while True:
+    if button_a.was_pressed():
+        handle_a()
+    if button_b.was_pressed():
+        handle_b()
+        
+```
+
+Dit is de kern van het programma. 
+De rest is alleen nodig voor de uitvoer naar het microbit-display.
+
+:::{exercise} uitbreiding
+Onder het resultaat is nog een lege regel in het display.
+Pas het programma zo aan dat je een 10-bits resultaat kunt weergeven.
+:::
+
+(seriele-opteller-programma)=
 ## Het programma
 
 ```Python
@@ -163,102 +275,3 @@ while True:
         reset()
     sleep(20)
 ```
-
-## Uitleg bij het programma
-
-Deze serie-opteller is gebaseerd op de volgende eindige automaat:
-
-:::{figure} figs/serie-opteller.png
-:width: 500
-:align: center
-
-Serie-opteller
-:::
-
-Deze automaat werkt als volgt:
-
-* de toestanden c0 en c1 geven aan dat de "carry" (overdracht) van de vorige optelling 0 of 1 was. (c1 betekent: "1 onthouden" van de vorige optelling.)
-* s0 staat voor "som tot nu toe: 0", na de invoer van 1 symbool (het bit van X), s1: "som is 1", s2: "som is 2"
-* bij de invoer van elk 2e symbool (het bit van Y) vindt de output van de som plaats, en is de nieuwe toestand c0 of c1, afhankelijk van het cijfer dat onthouden moet worden.
-* de uitvoer "01" betekent: 0 onthouden (overdracht), vul in: 1.
-
-Deze automaat in tabelvorm:
-
-| state | input | output | next   |
-| :--   | :--   | :--    | :--    |
-| c0    | a     |        | s0     |
-| c0    | b     |        | s1     |
-| s0    | a     | 0      | c0     |
-| s0    | b     | 1      | c0     |
-| s1    | a     | 1      | c0     |
-| s1    | b     | 0      | c1     |
-| c1    | a     |        | s1     |
-| c1    | b     |        | s2     |
-| s2    | a     | 0      | c1     |
-| s2    | b     | 1      | c1     |
-
-Sorteren op input, in plaats van op state, geeft:
-
-| state | input | output | next   |
-| :--   | :--   | :--    | :--    |
-| c0    | a     |        | s0     |
-| s0    | a     | 0      | c0     |
-| s1    | a     | 1      | c0     |
-| c1    | a     |        | s1     |
-| s2    | a     | 0      | c1     |
-| c0    | b     |        | s1     |
-| s0    | b     | 1      | c0     |
-| s1    | b     | 0      | c1     |
-| c1    | b     |        | s2     |
-| s2    | b     | 1      | c1     |
-
-In programmavorm wordt dit:
-
-```Python
-def handle_a():
-    if state == c0:
-        state = s0
-    elif state == s0:
-        state = c0
-        output_sum(0, 0)
-    elif state == s1:
-        state = c0
-        output_sum(0, 1)
-    elif state == c1:   
-        state = s1
-    elif state == s2:
-        state = c1
-        output_sum(1, 0)
-        
-def handle_b():
-    if state == c0:
-        state = s1
-    elif state == s0:
-        state = c0
-        output_sum(0, 1)
-    elif state == s1:
-        state = c1
-        output_sum(1, 0)
-    elif state == c1:   
-        state = s2
-    elif state == s2:
-        state = c1
-        output_sum(1, 1)
-        
-state = c0
-while True:
-    if button_a.was_pressed():
-        handle_a()
-    if button_b.was_pressed():
-        handle_b()
-        
-```
-
-Dit is de kern van het programma. 
-De rest is alleen nodig voor de uitvoer naar het microbit-display.
-
-:::{exercise} uitbreiding
-Onder het resultaat is nog een lege regel in het display.
-Pas het programma zo aan dat je een 10-bits resultaat kunt weergeven.
-:::
-

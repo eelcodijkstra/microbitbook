@@ -48,5 +48,5 @@ sphinx:
       assessment: "Vraag %s"
     graphviz_output_format: "svg"    
 
-exclude_patterns: [ext/*,_build, Thumbs.db, .DS_Store, ".ipynb_checkpoints/*", "**.ipynb_checkpoints", figuren/*]
+exclude_patterns: [physical_computing.md, ext/*,_build, Thumbs.db, .DS_Store, ".ipynb_checkpoints/*", "**.ipynb_checkpoints", figuren/*]
 

@@ -21,19 +21,25 @@ parts:
     - file: verkeerslichten
     - file: binaire-klok
     - file: cellulaire-automaat
-    - file: game-of-life
-    - file: serie-opteller
+    - file: opdrachten/game-of-life
+    - file: opdrachten/serie-opteller
+    - file: led-met-timer
+    - file: afstandssensor
+    - file: pir-sensor
+    
+  - caption: concepten
+    chapters:
+    - file: concepten/events-signalen
+    - file: concepten/cellulaire-automaten
+    - file: concepten/timers
+    - file: concepten/automaten
+    - file: concepten/input-output-systemen    
 
   - caption: referentie
     chapters:
     - file: referentie/mu-editor
     - file: referentie/python
     - file: referentie/microbit-cheatsheet    
-    - file: referentie/events-signalen
-    - file: referentie/timers
-    - file: referentie/automaten
-    - file: referentie/input-output-systemen
-    - file: referentie/cellulaire-automaten
     - file: referentie/glossary
     
   - caption: voor de docent

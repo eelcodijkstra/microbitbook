@@ -5,8 +5,8 @@ Kopieer het programma hieronder naar de editor die je gebruikt, en laad het op d
 
 Gebruik:
 
-* knop A geeft steeds de volgende generatie.
-* knop B geeft een vast patroon (kruisje) als begin-generatie.
+* knop A geeft een vast patroon (kruisje) als begin-generatie.
+* knop B geeft steeds de volgende generatie.
 * schudden geeft een nieuwe (random) begin-generatie.
 
 :::
@@ -101,10 +101,10 @@ cells = create_random_field()
 display_field(cells)
 while True:
     if button_a.was_pressed():
-        cells = next_generation()
+        cells = create_cross_field()
         display_field(cells)
     if button_b.was_pressed():
-        cells = create_cross_field()
+        cells = next_generation()        
         display_field(cells)
     if accelerometer.was_gesture('shake'):
         cells = create_random_field()
